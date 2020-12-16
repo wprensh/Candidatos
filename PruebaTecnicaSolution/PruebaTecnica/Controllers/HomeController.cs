@@ -36,26 +36,6 @@ namespace PruebaTecnica.Controllers
 
         public ActionResult Pruebas()
         {
-            List<Entrevista> entrevistas = new List<Entrevista>();
-
-            Json_Service json_Service = new Json_Service();
-            List<MyJsonData> myJsonDatas = json_Service.GetReleases("http://jsonplaceholder.typicode.com");
-            foreach (var item in context.Entrevistas)
-            {
-                entrevistas.Add(new Entrevista()
-                {
-                    Id = item.Id,
-                    Reclutador = item.Reclutador,
-                    Reclutadore = item.Reclutadore,
-                    Candidato = myJsonDatas.Where(x => x.id == item.Candidato).Select(y => y.id).FirstOrDefault(),
-                    candicatoname = myJsonDatas.Where(x => x.id == item.Candidato).FirstOrDefault(),
-                    Fecha_Entrevista = item.Fecha_Entrevista,
-                    Hora_Entrevista = item.Hora_Entrevista,
-                    Tipo_Entervista = item.Tipo_Entervista,
-                    Tipo_Tecnologia = item.Tipo_Tecnologia
-                });
-            }
-
             //var result = from entreview in entrevistas join candidatos in myJsonDatas 
             //             on entreview.Candidato equals candidatos.id
             //             select new {
@@ -68,8 +48,8 @@ namespace PruebaTecnica.Controllers
             //                 entreview.Tipo_Tecnologia,
             //                 candidatos.name
             //             };
-
-            return View(entrevistas);
+            
+            return View(ptWcfClient.ObtenerEntrevistas());
         }
 
 
@@ -81,7 +61,7 @@ namespace PruebaTecnica.Controllers
         /// <returns></returns>  
         public PartialViewResult getByIdTecnologia(int idTegnologia)
         {
-            ViewBag.LstTipoTecnologia = datosAuxiliares.tecnologias.Where(s => s.Id == idTegnologia).Select(m => m.tipoTecnologias).ToList();
+            ViewBag.LstTipoTecnologia = ptWcfClient.ObtenerTecnologias().Where(s => s.Id == idTegnologia).Select(m => m.tipoTecnologias).ToList();
 
             return PartialView("_getByIdTecnologia");
         }
@@ -93,7 +73,7 @@ namespace PruebaTecnica.Controllers
             ViewBag.Accounts = datosAuxiliares.tecnologias;
             Entrevista entrevista_obj = new Entrevista()
             {
-                reclutadores = datosAuxiliares.GetReclutadores()
+                reclutadores = ptWcfClient.ObtenerReclutadores().ToList()
             };
 
             return View(entrevista_obj);
