@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/PruebaTecnicaLibrary.Vo" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PruebaTecnicaLibrary.Vo" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50191/PtWcf.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Entrevista">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Candidato" type="xs:int" />
+      <xs:element minOccurs="0" name="Fecha_Entrevista" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Hora_Entrevista" type="ser:duration" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Reclutador" type="xs:int" />
+      <xs:element minOccurs="0" name="Reclutadore" nillable="true" type="tns:Reclutadore" />
+      <xs:element minOccurs="0" name="Tipo_Entervista" type="xs:int" />
+      <xs:element minOccurs="0" name="Tipo_Tecnologia" type="xs:int" />
+      <xs:element minOccurs="0" name="candicatoname" nillable="true" type="tns:MyJsonData" />
+      <xs:element minOccurs="0" name="reclutadores" nillable="true" type="tns:ArrayOfReclutadore" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Entrevista" nillable="true" type="tns:Entrevista" />
+  <xs:complexType name="Reclutadore">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Entrevistas" nillable="true" type="tns:ArrayOfEntrevista" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Reclutador" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Reclutadore" nillable="true" type="tns:Reclutadore" />
+  <xs:complexType name="ArrayOfEntrevista">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Entrevista" nillable="true" type="tns:Entrevista" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntrevista" nillable="true" type="tns:ArrayOfEntrevista" />
+  <xs:complexType name="MyJsonData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Entrevistas" nillable="true" type="tns:ArrayOfEntrevista" />
+      <xs:element minOccurs="0" name="address" nillable="true" type="tns:Address" />
+      <xs:element minOccurs="0" name="company" nillable="true" type="tns:Company" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="website" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MyJsonData" nillable="true" type="tns:MyJsonData" />
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="geo" nillable="true" type="tns:Geo" />
+      <xs:element minOccurs="0" name="street" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="suite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="zipcode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="Geo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="lat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lng" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Geo" nillable="true" type="tns:Geo" />
+  <xs:complexType name="Company">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="bs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="catchPhrase" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Company" nillable="true" type="tns:Company" />
+  <xs:complexType name="ArrayOfReclutadore">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Reclutadore" nillable="true" type="tns:Reclutadore" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReclutadore" nillable="true" type="tns:ArrayOfReclutadore" />
+  <xs:complexType name="ArrayOfMyJsonData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MyJsonData" nillable="true" type="tns:MyJsonData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMyJsonData" nillable="true" type="tns:ArrayOfMyJsonData" />
+  <xs:complexType name="ArrayOfTecnologia">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tecnologia" nillable="true" type="tns:Tecnologia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTecnologia" nillable="true" type="tns:ArrayOfTecnologia" />
+  <xs:complexType name="Tecnologia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoTecnologia" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoTecnologias" nillable="true" type="tns:ArrayOfTipoTecnologia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tecnologia" nillable="true" type="tns:Tecnologia" />
+  <xs:complexType name="ArrayOfTipoTecnologia">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoTecnologia" nillable="true" type="tns:TipoTecnologia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoTecnologia" nillable="true" type="tns:ArrayOfTipoTecnologia" />
+  <xs:complexType name="TipoTecnologia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="tipoTecnologia" nillable="true" type="tns:TipoTecnologia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoTecnologia" nillable="true" type="tns:TipoTecnologia" />
+</xs:schema>

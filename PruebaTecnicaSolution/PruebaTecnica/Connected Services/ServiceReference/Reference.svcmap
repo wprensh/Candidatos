@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a55c9d13-6d87-40ed-8414-5b2e4823eae8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50191/PtWcf.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PtWcf.disco" MetadataType="Disco" ID="5e12d3d4-49e5-4973-9d98-185fef692fa6" SourceId="1" SourceUrl="http://localhost:50191/PtWcf.svc?disco" />
+    <MetadataFile FileName="PtWcf.xsd" MetadataType="Schema" ID="b73b1bd6-4a47-4273-9291-857fe80d9c76" SourceId="1" SourceUrl="http://localhost:50191/PtWcf.svc?xsd=xsd1" />
+    <MetadataFile FileName="PtWcf1.xsd" MetadataType="Schema" ID="f4c54a36-f1d1-40e6-a481-00bf80d69e0d" SourceId="1" SourceUrl="http://localhost:50191/PtWcf.svc?xsd=xsd0" />
+    <MetadataFile FileName="PtWcf2.xsd" MetadataType="Schema" ID="3177a239-fde4-4123-8d4c-a7935fadc603" SourceId="1" SourceUrl="http://localhost:50191/PtWcf.svc?xsd=xsd2" />
+    <MetadataFile FileName="PtWcf.wsdl" MetadataType="Wsdl" ID="52af77f1-592d-4c2b-97a9-1ac2393e42c6" SourceId="1" SourceUrl="http://localhost:50191/PtWcf.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
