@@ -1,0 +1,30 @@
+﻿@using (Html.BeginForm("Obtener", "Home", FormMethod.Post))
+{<table class="table">
+     <tr>
+         <th>
+             id
+         </th>
+         <th>
+             Descripcion
+         </th>
+         <th>
+             Check
+         </th>
+     </tr>
+
+        @foreach (var item in ViewBag.LstTipoTecnologia == null ? "" : ViewBag.LstTipoTecnologia[0])
+        {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.Descripcion
+            </td>
+            <td>
+                <input type="checkbox"  id="@item.Id" name="res"  />
+            </td>
+        </tr>
+        }
+    </table>
+}
